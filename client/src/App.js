@@ -6,7 +6,7 @@ export default () => {
   const [color, setColor] = useState('#000000');
 
   useEffect(() => {
-    fetch(`http://raspberrypi:3000/api/hex/${color.substring(1)}`)
+    fetch(`/api/hex/${color.substring(1)}`)
   }, [color])
 
   const handleChangeComplete = color => setColor(color.hex);

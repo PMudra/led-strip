@@ -1,9 +1,16 @@
-const ws281x = require('rpi-ws281x-native');
+let ws281x;
+try {
+  ws281x = require('rpi-ws281x-native');
+} catch(error) {
+  console.error(error.message);
+}
 
 const ledCount = 144;
 const pixelData = new Uint32Array(ledCount);
 
-ws281x.init(ledCount);
+if (ws281x) {
+  ws281x.init(ledCount);
+}
 
 function reset() {
   ws281x.reset();
